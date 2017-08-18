@@ -1,0 +1,74 @@
+Path:
+        $HOME/.egmoney/
+
+Files in path:
+
+        egjournal.bin
+                list of ledger entries
+        backups/egjournal_`date +%s`.bin
+                backup of egjournal.bin.  Once one backup is made, older
+                backups could be cleaned up.
+
+Programs:
+
+ egm-append
+        Add a new entry from interactive command line to egjournal.bin
+ egm-appendf
+        Add a new entry from file to egjournal.bin
+ egm-balance
+        Print the balance of one or all accounts
+ egm-cash-creep
+        calculate cash-creep and append to egjournal.bin if necessary
+ egm-report
+        print various types of human-readable accounting reports (probably
+        csv files).
+ egm-sort 
+        **TODO** just get rid of this.
+        Replace egjournal.bin with list sorted by transaction date (NOT
+        time stamp)
+ egm-dump
+        Read from egjournal.bin and translate into ASCII onto standard out
+        **TODO** Change from report style to json style, have egm-report
+        do the report style.
+ egm-backup
+        Back up egjournal.bin
+
+File form of a journal entry:
+"entry": [{
+  "date": "8/16/16",
+  "transaction": [{
+     "account": "101",
+     "amount": "-105.2"
+  }, {
+     "account": "502",
+     "amount": "5.2"
+  }, {
+     "account": "505",
+     "amount": "100"
+  }],
+  "notes": "Sundry odds and ends"
+}]
+
+Future program structure:
+
+ egm-daemon
+        1. Manage balances.bin as a memory struct, backing it up every
+           hour or so
+        2. Back up egjournal.bin every hour or so.
+        3. Manage socket access to memory struct of balances.bin, so that
+           programs do not need to access balances.bin directly.
+        4. Maybe do 3. for egjournal.bin as well.
+ egm-cli
+        Interface with database via egm-daemon
+ egm-qt
+        GUI version of egm-cli
+
+Pitfalls:
+ How to update account balances?
+  - Add an unchangeable time stamp of entry for every entry, and use that
+    stamp with the account balances file.
+  - Sort only checks according to date of transaction, not time stamp.
+  - 1-second precision will do.
+
+ How to back up?
+  - Akin to "Easier with a daemon?"

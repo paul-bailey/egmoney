@@ -1,0 +1,29 @@
+# egm-cli(1) completion        -*- shell-script -*-
+
+# if `uname -s` is Darwin, install is a little special:
+_egm_cli()
+{
+    local cur prev
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    case ${prev} in
+        -d)
+            _filedir
+            return 0
+            ;;
+        *)
+            ;;
+    esac
+
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=( $( compgen -W '-c -d -h -j -v -? -M -Q -Y' -- "$cur" ) )
+    else
+         COMPREPLY=( $( compgen -W 'append balance coa dump diff path html' -- "$cur" ) )
+    fi
+
+    return 0
+}
+
+complete -F _egm_cli egm-cli

@@ -1,0 +1,6 @@
+# -*- shell-script -*-
+prefix=/usr/local
+installdir=${prefix}/Cellar/bash-completion/1.3_1/etc/bash_completion.d
+linkdir=${prefix}/etc/bash_completion.d
+cp egm-cli ${installdir}/egm-cli
+ln -fs ${installdir}/egm-cli ${linkdir}/egm-cli

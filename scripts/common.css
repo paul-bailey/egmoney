@@ -1,0 +1,307 @@
+html {
+  overflow-y: scroll;  /*keeps page from shifting horizontally b/c scroll bar is added*/
+}
+
+body, html {
+  /*float: none;*/
+  height: 100%; /*keep footer at bottom*/
+  /*background-color: #e8ebee;*/
+}
+
+#container {
+  margin: auto; /*margin: 0;*/
+  width: 960px;
+  text-align: left;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-right: 2px solid #eae2cb;
+  border-left: 2px solid #eae2cb;
+  overflow: hidden; /*border shown from top to bottom regardless of page height*/
+  float: none;
+  min-height: 100%; /*keep footer at bottom*/
+  position: relative; /*keep footer at bottom*/
+  /*background-color: #fff;*/
+}
+
+.clearfooter { /*keep footer at bottom*/
+  height: 40px;
+  clear:both;
+}
+
+div {
+  width: 930px;
+}
+
+/*gets rid of dotted border around clicked links*/
+a {
+  outline: none;
+}
+
+h1 {
+    font-family: Verdana, Helvetica, FreeSans, Sans-serif;
+	font-size: 140%;
+}
+
+h2 {
+    font-family: Verdana, Helvetica, FreeSans, Sans-serif;
+	font-size: 95%;
+	clear: both;
+}
+
+h3 {
+  color: #0042CF;
+  size: 80%;
+}
+
+h3 a {
+  text-decoration: none;
+  color: #0042CF;
+}
+
+/* Defines the main text characteristics*/
+body {
+    font-family: "Arial MS", Sans-serif;
+    color: black;
+	font-size: 90%;
+	padding-bottom: 20px; /*keep footer at bottom, height of footer*/
+  }
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* Raise to power without pushing up line above*/
+.power {
+  position: relative;
+  bottom: 0.5em;
+  font-size: 0.8em;
+}
+
+.subscript {
+  position: relative;
+  top: 0.5em;
+  font-size: 0.8em;
+}
+
+.docsize {
+  font-size: 75%;
+}
+
+#topsentence {
+  float: left;
+  clear: right;
+  margin: 0px 0px 25px 0px;
+}
+
+#foot  {
+  width: 99%;
+  text-align: center;
+  font-size: 80%;
+  float: left;
+  margin-bottom: 20px;
+  position: absolute; /*keep footer at bottom*/
+  bottom: 0; /*keep footer at bottom*/
+  height: 20px; /*keep footer at bottom*/
+}
+
+#pagetitle {
+    list-style-type: None;
+}
+
+/********************************************************TABLES****************************************************/
+/*table {
+  float: left;
+  clear: right;
+  background-color: #fff;
+  border: 1px solid #F0EAD6;
+  empty-cells: show;
+  margin: 10px 5px 5px 30px;
+  padding: 4px;
+  text-align: left;
+  width: 900px;
+}
+
+table caption {
+  font-weight: bold;
+  color: #000;
+  margin: 0 0 5px 0;
+  padding: 0;
+  text-align: left;
+}
+
+table tbody tr {
+  text-align: center;
+}
+
+table tbody tr.tablehead {
+  color: #0042CF;
+  font-weight: bold;
+}
+
+table tbody td.left {
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+}*/
+
+td {
+	padding: 5px 5px 5px 5px;
+}
+
+tr.odd {
+  background-color: #fff;
+}
+
+tr.even {
+  background-color: #F0EAD6;
+}
+
+img {
+  border-style: none;
+}
+
+.paragraph_text {
+  clear: both;
+}
+
+#egm_blue {
+  color: #0042CF
+}
+
+.spec_indent1 {
+ margin-left: 57px;
+}
+
+.spec_indent2 {
+  margin-left: 18px;
+}
+
+.spec_indent3 {
+  margin-left: 83px;
+}
+
+.spec_indent4 {
+  margin-left: 25px;
+}
+
+/*****************************************************NAVIGATION***************************************************/
+
+/* TODO: Get these */
+#nav {
+  background: url(photos/navigation.jpg) no-repeat;
+  height: 90px;
+  font-family: Verdana, Helvetica, FreeSans, Sans-serif;
+  list-style: none;
+  width: 1000px;
+}
+
+#nav li {
+  float: left;
+  margin-top: 30px;
+  width: 120px;
+  position: relative;
+  /*border: 1px solid purple;*/
+  z-index: 100;
+}
+
+#nav a {
+  color: #0042CF;
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 10px;
+  height: 25px;
+  /*border: 1px solid orange;*/
+}
+
+#nav ul {
+  display: none;
+  position: absolute;
+  list-style: none;
+  margin-top: -1.5px;
+  /*border: 1px solid green;*/
+}
+
+#nav ul li {
+  margin-top: 0px;
+  margin-left: -145px;
+  float: none;
+  width: 225px;
+  background-color: #FFF;
+  border-left: 1px solid #0042CF;
+  border-right: 1px solid #0042CF;
+  border-bottom: 1px solid #0042CF;
+  /*background-color: #FFF;
+  border-left: 1px solid #EEE;
+  border-right: 1px solid #EEE;
+  border-bottom: 1px solid #EEE;*/
+}
+
+#nav #hills {
+  float: left;
+  width: 250px;
+  margin: 0px 0px 0px -50px;
+  height: 85px;
+  display: block;
+}
+
+#nav #hills a {
+  display: block;
+  height: 75px;
+}
+
+#nav li:hover a {
+  text-decoration: underline;
+  color: #999;
+}
+
+#nav li:hover ul a{
+	text-decoration:none;
+	/*background-color: #0042CF;*/
+	color: #0042CF;
+}
+
+#nav ul li a:hover {
+  text-decoration: underline;
+}
+
+#nav #title {
+  width: auto;
+  margin-top: 20px;
+  margin-left: 20px;
+  height: 25px;
+}
+
+.hidden {
+        display: none;
+}
+
+table {
+  float: left;
+  clear: right;
+  background-color: #fff;
+  border: 5px solid #F0EAD6;
+  empty-cells: show;
+  margin: 10px 5px 5px 30px;
+  padding: 4px;
+  text-align: left;
+  /*width: 900px;*/
+}
+.notes {
+  color: blue;
+  border-bottom: 5px solid #F0EAD6;
+}
+#hdr, .depth0 {
+  font-weight: 900;
+  background-color: #ffecff;
+}
+.depth1 {
+  font-weight: bold;
+}

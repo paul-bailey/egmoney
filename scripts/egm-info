@@ -1,0 +1,33 @@
+#!/bin/sh
+dst=$HOME/tmp/egmout
+what=html
+while test $# -ne 0
+do
+    case $1 in
+        -M | -Q | -Y) args="$args $1";;
+        --dir) dst=$2; shift;;
+        -c) what=csv;;
+        *) echo "Invalid arg '$1'">&2; exit 1;;
+    esac
+    shift
+done
+unm=`uname -s`
+if test "x${unm}" = "xDarwin"; then
+    ieopen=open
+elif test "x${what}" = "xcsv"; then
+    ieopen=xdg-open
+else
+    ieopen=firefox
+fi
+
+test -d $dst && rm -rf $dst
+if test "x${what}" = "xcsv"; then
+    mkdir $dst
+    egm-cli $args -c dump > $dst/ledger.csv
+    egm-cli $args -c coa > $dst/coa.csv
+    egm-cli $args -c balance > $dst/balance.csv
+    $ieopen $dst
+else
+    egm-cli $args html $dst
+    $ieopen $dst/coa.html
+fi
